@@ -1,0 +1,173 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+/* ── Normal grid (no screen share active) ─────────────────────────────────── */
+
+.grid {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* ── Screen-share featured layout ─────────────────────────────────────────── */
+/* Large featured tile on top, camera strip below */
+
+.screenShareLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.featuredTile {
+  flex: 1 1 0;
+  min-height: 0;
+  position: relative;
+  background: var(--bg-elevated);
+  border: 2px solid var(--amber-500);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 0 32px rgba(255, 193, 7, 0.2), var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featuredVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* contain so shared screen isn't cropped */
+  border-radius: calc(var(--radius-lg) - 2px);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  background: var(--amber-500);
+  color: #000;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+.cameraStrip {
+  display: flex;
+  gap: 12px;
+  height: 160px;
+  flex-shrink: 0;
+  overflow-x: auto;
+  align-items: stretch;
+}
+
+.cameraStrip::-webkit-scrollbar {
+  height: 4px;
+}
+.cameraStrip::-webkit-scrollbar-track { background: transparent; }
+.cameraStrip::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 2px;
+}
+
+.stripTile {
+  flex: 0 0 auto;
+  width: 240px;
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--duration-normal) var(--ease-out);
+}
+
+.stripTile:hover {
+  border-color: var(--amber-500);
+}
+
+/* ── Shared tile base styles ──────────────────────────────────────────────── */
+
+.videoTile {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.videoTile:hover {
+  border-color: var(--amber-500);
+  box-shadow: 0 4px 24px rgba(255, 193, 7, 0.15);
+}
+
+.videoElement {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 1px);
+}
+
+.mirrored {
+  transform: scaleX(-1);
+}
+
+.videoPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  gap: 10px;
+}
+
+.placeholderIcon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 4px 8px rgba(255, 193, 7, 0.15));
+}
+
+.placeholderText {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.nameTag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  background: rgba(10, 10, 12, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  pointer-events: none;
+}

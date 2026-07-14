@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: popcornn-signaling-server
+    runtime: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: CORS_ORIGIN
+        sync: false
+        value: http://localhost:3000 # Update this on Render dashboard to the Vercel app URL once deployed
+

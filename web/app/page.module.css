@@ -1,0 +1,195 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Popcornn — Landing page styles
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+}
+
+/* ── Ambient background glows ────────────────────────────────────────────── */
+.ambientGlow {
+  position: fixed;
+  top: -30%;
+  left: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, var(--amber-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientGlowRed {
+  position: fixed;
+  bottom: -20%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, var(--red-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Container ───────────────────────────────────────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logoMark {
+  font-size: 3.5rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 4px 12px rgba(255, 193, 7, 0.3));
+  animation: floatEmoji 3s ease-in-out infinite;
+}
+
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, var(--amber-400), var(--amber-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+.card {
+  width: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: background var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+}
+
+/* ── Fields ───────────────────────────────────────────────────────────────── */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.codeInput {
+  font-family: 'Inter', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ── Actions ──────────────────────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btnIcon {
+  font-size: 1.1rem;
+}
+
+/* ── Mode panel (create / join) ──────────────────────────────────────────── */
+.modePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modeHint {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.modeActions {
+  display: flex;
+  gap: 12px;
+}
+
+.modeActions .btn {
+  flex: 1;
+}
+
+/* ── Error ────────────────────────────────────────────────────────────────── */
+.error {
+  font-size: 0.88rem;
+  color: var(--red-400);
+  text-align: center;
+  padding: 8px;
+  background: var(--red-glow);
+  border-radius: var(--radius-sm);
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.footer {
+  margin-top: 24px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  animation-delay: 400ms !important;
+  opacity: 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .logoMark {
+    font-size: 2.8rem;
+  }
+}

@@ -1,0 +1,330 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Popcornn — Room page styles
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* ── Top bar ─────────────────────────────────────────────────────────────── */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 10;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  font-size: 1.4rem;
+}
+
+.brandName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Room code chip */
+.roomCode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.roomCode:hover {
+  border-color: var(--amber-500);
+  box-shadow: 0 0 0 3px var(--amber-glow);
+}
+
+.codeLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.codeValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--amber-400);
+  letter-spacing: 0.12em;
+  font-family: 'Inter', monospace;
+}
+
+.copyHint {
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.roomCode:hover .copyHint {
+  opacity: 1;
+}
+
+/* Participant chip (top bar) */
+.participantChip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+.participantDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.participantCount {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ── Participant bar (below top bar) ─────────────────────────────────────── */
+.participantBar {
+  padding: 8px 20px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow-x: auto;
+}
+
+.participantList {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.participantTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.participantTagDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+
+/* ── Stage (video area) ──────────────────────────────────────────────────── */
+.stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Placeholder for Phase 1 */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 420px;
+}
+
+.placeholderIcon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 12px rgba(255, 193, 7, 0.2));
+}
+
+.placeholderTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.placeholderText {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Control bar ─────────────────────────────────────────────────────────── */
+.controlBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.controlBtn {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  font-size: 1.2rem;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.controlBtn:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--amber-500);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.controlBtnActive {
+  background: var(--amber-glow);
+  border-color: var(--amber-500);
+}
+
+.controlBtnScreenShare {
+  background: var(--red-glow);
+  border-color: var(--red-400);
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.12);
+}
+
+.controlBtnScreenShare:hover {
+  background: rgba(229, 57, 53, 0.22);
+  border-color: var(--red-500);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(229, 57, 53, 0.28);
+}
+
+.controlBtnDanger {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--red-400);
+}
+
+.controlBtnDanger:hover {
+  background: var(--red-glow);
+  border-color: var(--red-500);
+  box-shadow: 0 4px 16px rgba(229, 57, 53, 0.2);
+}
+
+/* ── Content area layout (splits video grid and chat) ────────────────────── */
+.contentArea {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Chat toggle button relative positioning */
+.chatToggleBtn {
+  position: relative;
+}
+
+/* Unread message notification badge */
+.unreadDot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber-500);
+  border: 2px solid var(--bg-elevated);
+  box-shadow: 0 0 8px var(--amber-500);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(255, 193, 7, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+/* scaleWarning styles for large room hints */
+.scaleWarning {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--amber-glow);
+  border: 1px solid var(--amber-500);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--amber-400);
+  white-space: nowrap;
+  margin-left: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .topBar {
+    padding: 10px 14px;
+  }
+
+  .brandName {
+    display: none;
+  }
+
+  .placeholder {
+    padding: 32px 24px;
+  }
+
+  .controlBtn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+}

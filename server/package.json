@@ -1,0 +1,15 @@
+{
+  "name": "popcornn-server",
+  "version": "1.0.0",
+  "description": "Popcornn signaling server — WebRTC room coordination via Socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "cors": "^2.8.5",
+    "socket.io": "^4.8.0"
+  }
+}
